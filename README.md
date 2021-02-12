@@ -1,5 +1,5 @@
 # StockStalker Guide
-A easy to use, robust and quick Stocks API.
+A easy to use, robust and quick Stocks Library.
 
 **WORK IN PROGRESS**
 
