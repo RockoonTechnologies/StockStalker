@@ -1,24 +1,16 @@
 # StockStalker Guide
-A easy to use, robust and quick Stocks Library.
+A easy to use, robust and quick Stocks API.
 
 **WORK IN PROGRESS**
 
-PyPI: https://test.pypi.org/project/StockStalker/0.2/
+Changelog 2/12/2021:
+- improved stocks reliability
+- added crypto, doesnt work that well, need to fix
+- added Currency module, works 
 
 
-To install StockStalker, you can use pip (its currently being hosted on the PyPi testing servers, because its still being worked on):
-
-`pip install -i https://test.pypi.org/simple --no-deps StockStalker`
-
-Becuase its hosted on the Testing Server, you must install the dependicies manually:
-
-- `pip install pandas`
-- `pip install requests`
-- `pip install Munch`
-- `pip install lxml`
-- `pip install beautifulsoup4`
-
-
+To install StockStalker, you can use pip:
+`pip install stocky`
 
 StockStalker is composed of two main sub-modules:
 `present` & `past`

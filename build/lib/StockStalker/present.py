@@ -75,16 +75,21 @@ def getLiveData(ticker, format="Dict"):
 def getPrice(soup):
     hits = soup.find(class_='Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)')
 
+    if "," in hits.text:
+        hits = hits.text.replace(",", "")
+    else:
+        hits = hits.text
 
     try:
-        return float(hits.text)
+        return float(hits)
     except:
         return "N/A"
+
 
 def getChange(soup):
     hits = soup.find(class_='Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($negativeColor)')
 
-    if hits == []:
+    if hits == None:
         hits = soup.find(class_='Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($positiveColor)')
 
     if hits == None:
@@ -96,12 +101,13 @@ def getChange(soup):
     except:
         return "N/A"
 
-
+    if "," in numChange:
+        numChange = numChange.replace(",", "")
 
     return [float(numChange), percChange]
 
 def getPEttm(soup):
-    #Trsdu(0.3s)
+
     hits = soup.find(attrs={"data-reactid":149})
 
     if hits == None:
@@ -131,10 +137,18 @@ def getRange(soup):
 def getOpen(soup):
     hits = soup.find(attrs={"data-test": "OPEN-value"})
 
+    if "," in hits.text:
+        hits = hits.text.replace(",", "")
+        final = float(hits)
+
+
     try:
-        final = float(hits.text)
+        final = float(hits)
     except:
-        return "N/A"
+        try:
+            final = float(hits.text)
+        except:
+            return "N/A"
     return final
 
 def getPrevClose(soup):
@@ -232,10 +246,3 @@ def getIndex(index):
         return df
 
 
-def getIncomeStatement():
-    #https://finance.yahoo.com/quote/TSLA/financials?p=TSLA
-    page = pd.read_html("https://finance.yahoo.com/quote/TSLA/financials?p=TSLA")
-    print(page)
-
-
-    return page
