@@ -75,6 +75,9 @@ def getLiveData(ticker, format="Dict"):
 def getPrice(soup):
     hits = soup.find(class_='Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)')
 
+    if hits==None:
+        return "N/A"
+
     if "," in hits.text:
         hits = hits.text.replace(",", "")
     else:
@@ -137,6 +140,9 @@ def getRange(soup):
 def getOpen(soup):
     hits = soup.find(attrs={"data-test": "OPEN-value"})
 
+    if hits == None:
+        return "N/A"
+
     if "," in hits.text:
         hits = hits.text.replace(",", "")
         final = float(hits)
@@ -156,7 +162,13 @@ def getPrevClose(soup):
     if hits == None:
         return "N/A"
 
-    final = float(hits.text)
+    if "," in hits.text:
+        hits = hits.text.replace(",", "")
+        final = float(hits)
+    else:
+        final = float(hits.text)
+
+
     return final
 
 def getEPS(soup):

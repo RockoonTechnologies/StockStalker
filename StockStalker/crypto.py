@@ -1,7 +1,9 @@
 import bs4
 import requests
 import re
-import present
+import StockStalker.present as present
+import pandas as pd
+from munch import munchify
 
 def getCrypto(cryptoTicker, format="Dict"):
     try:
@@ -22,8 +24,8 @@ def getCrypto(cryptoTicker, format="Dict"):
     low = ranges[0]
     high = ranges[1]
 
-    open = getOpen(soup)
-    close = getPrevClose(soup)
+    open = present.getOpen(soup)
+    close = present.getPrevClose(soup)
 
     dataDict = {
         "Symbol": cryptoTicker,

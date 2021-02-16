@@ -3,7 +3,7 @@ from setuptools import setup
 
 
 setup(name='StockStalker',
-      version='0.2.1',
+      version='0.2.3',
       description='easy to use, robust and quick stocks package',
       long_description="README.md",
       long_description_content_type='text/markdown',
