@@ -5,7 +5,9 @@ A easy to use, robust and quick Stocks API.
 
 See the wiki for guide and usage
 
-Changelog 2/16.2021:
+Planning to fully add "stalkers"
+
+Changelog 2/16/2021:
  - added cyrpto
  - more safety checks
  - just all-around better
