@@ -99,12 +99,8 @@ class Stalker:
 
         self.thread = threading.Thread(target=self.__run)
         self.thread.start()
-        
-
 
     def wait(self):
         self.thread.join()
-
-
     def kill(self):
         self.__killed = True

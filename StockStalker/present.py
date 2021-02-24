@@ -6,6 +6,14 @@ from ftplib import FTP
 from munch import munchify
 
 
+import os
+import shutil
+
+if os.path.exists("cache") == False:
+    os.mkdir("cache")
+else:
+    shutil.rmtree("cache")
+
 
 
 
